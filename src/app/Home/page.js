@@ -97,7 +97,7 @@ const page = () => {
             transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
           >
             <Image
-              src="/Image/top11.png"
+              src="/Image/WhatsApp Image 2025-11-13 at 19.05.52_1f28799b.jpg"
               alt="developer"
               fill
               className="object-cover"

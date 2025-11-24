@@ -14,7 +14,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Page = () => {
   return (
-    <div className="bg-[#202632] min-h-screen">
+    <div className=" min-h-screen">
       <Navbar />
       <main className="overflow-x-hidden">
         <Home />

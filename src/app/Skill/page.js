@@ -3,8 +3,6 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css"; // import AOS styles
-
-// icons import
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs } from "react-icons/fa";
 import { SiNextdotjs, SiTailwindcss, SiMongodb } from "react-icons/si";
 
@@ -21,42 +19,42 @@ const skills = [
 
 const Skills = () => {
   useEffect(() => {
-    AOS.init({ duration: 800, once: true }); // animation duration
+    AOS.init({ duration: 1000, once: true }); // longer animation
   }, []);
 
   return (
     <div className="min-h-screen bg-[#202632] text-white py-16 px-6">
-      <div className="container mx-auto max-w-5xl">
+      <div className="container mx-auto max-w-6xl">
 
         {/* Heading */}
         <h1
-          className="text-4xl font-bold text-center mb-16"
+          className="text-4xl md:text-5xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-[#00ADB5] to-[#00C1D0]"
           data-aos="fade-down"
         >
           My Skills
         </h1>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="bg-[#1A202C] p-5 rounded-xl shadow-md text-center space-y-3"
+              className="bg-[#1A202C] p-6 rounded-2xl shadow-lg text-center space-y-4 transform transition duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer"
               data-aos="fade-up"
-              data-aos-delay={index * 100} // stagger animation
+              data-aos-delay={index * 150} // stagger animation
             >
-              {/* Icon */}
-              <div className="text-4xl mx-auto text-[#00ADB5] flex justify-center">
+              {/* Icon with hover effect */}
+              <div className="text-5xl mx-auto text-[#00ADB5] flex justify-center items-center transition-transform duration-500 hover:scale-125">
                 {skill.icon}
               </div>
 
               {/* Skill Name */}
-              <h3 className="text-lg font-semibold">{skill.name}</h3>
+              <h3 className="text-xl font-semibold text-white">{skill.name}</h3>
 
-              {/* Progress Bar */}
-              <div className="w-full bg-gray-700 rounded-full h-1.5 overflow-hidden">
+              {/* Gradient Progress Bar */}
+              <div className="w-full bg-gray-700 rounded-full h-3 overflow-hidden">
                 <div
-                  className="bg-[#00ADB5] h-1.5 rounded-full transition-all duration-700"
+                  className="h-3 rounded-full transition-all duration-1000 bg-gradient-to-r from-[#00ADB5] via-[#00C1D0] to-[#00FFDD]"
                   style={{ width: skill.level }}
                 ></div>
               </div>

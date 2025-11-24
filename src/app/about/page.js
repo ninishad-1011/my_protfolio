@@ -34,7 +34,7 @@ const page = () => {
           whileHover={{ scale: 1.05 }}
         >
           <Image
-            src="/Image/image-removebg-preview.png"
+            src="/Image/WhatsApp Image 2025-11-13 at 19.05.52_1f28799b.jpg"
             alt="developer"
             width={300}
             height={300}
