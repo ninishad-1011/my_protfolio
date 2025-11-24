@@ -10,15 +10,8 @@ const page = () => {
     visible: (i) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.3, duration: 1 }
-    })
-  };
-
-  // Floating particles animation config
-  const particleAnim = {
-    y: [0, -30, 0],
-    x: [0, 20, 0],
-    transition: { repeat: Infinity, duration: 6, ease: "easeInOut" }
+      transition: { delay: i * 0.3, duration: 1 },
+    }),
   };
 
   return (
@@ -35,7 +28,6 @@ const page = () => {
       />
 
       <div className="container mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between px-6 md:px-0 py-16">
-
         {/* Text Section */}
         <div className="md:w-1/2 text-center md:text-left space-y-6">
           <motion.h1
@@ -45,7 +37,7 @@ const page = () => {
             animate="visible"
             custom={0}
           >
-            Hi, I'm <span className="text-[#00ADB5]">Nafiul Islam</span>
+            Hi, I&apos;m <span className="text-[#00ADB5]">Nafiul Islam</span>
           </motion.h1>
 
           <motion.p
@@ -55,7 +47,11 @@ const page = () => {
             animate="visible"
             custom={1}
           >
-            I am a Frontend Developer. I build <span className="text-[#00ADB5] font-semibold">responsive</span> and <span className="text-[#00ADB5] font-semibold">interactive</span> web interfaces using modern web technologies, focusing on user-friendly and visually appealing applications.
+            I am a Frontend Developer. I build{" "}
+            <span className="text-[#00ADB5] font-semibold">responsive</span> and{" "}
+            <span className="text-[#00ADB5] font-semibold">interactive</span>{" "}
+            web interfaces using modern web technologies, focusing on
+            user-friendly and visually appealing applications.
           </motion.p>
 
           <motion.div
@@ -65,21 +61,24 @@ const page = () => {
             animate="visible"
             custom={2}
           >
-            <motion.button
+            <motion.a
+              href="/project" // Update with your project page link
               whileHover={{ scale: 1.1, boxShadow: "0 0 15px #00ADB5" }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 bg-[#00ADB5] text-black font-semibold rounded-lg shadow-lg transition duration-300"
+              className="px-6 py-3 bg-[#00ADB5] text-black font-semibold rounded-lg shadow-lg transition duration-300 inline-block"
             >
-              Contact Me
-            </motion.button>
+              View My Projects
+            </motion.a>
 
-            <motion.button
+            <motion.a
+              href="/cv/ACP-DL_ A Deep Learning Long Short-Term_Memory Model to Predict Anticancer Peptides_Using High.pdf" // Place CV in public/CV folder
+              download
               whileHover={{ scale: 1.1, boxShadow: "0 0 15px #00ADB5" }}
               whileTap={{ scale: 0.95 }}
               className="px-6 py-3 bg-transparent border-2 border-[#00ADB5] text-white font-semibold rounded-lg shadow-lg hover:bg-[#00ADB5] hover:text-black transition duration-300"
             >
               Download My CV
-            </motion.button>
+            </motion.a>
           </motion.div>
         </div>
 
@@ -110,15 +109,15 @@ const page = () => {
       {[...Array(10)].map((_, i) => (
         <motion.div
           key={i}
-          className={`w-${i % 3 + 1} h-${i % 3 + 1} bg-[#00ADB5] rounded-full absolute`}
+          className={`w-${(i % 3) + 1} h-${(i % 3) + 1} bg-[#00ADB5] rounded-full absolute`}
           animate={{
             y: [0, -30 + i * 5, 0],
-            x: [0, 20 - i * 2, 0]
+            x: [0, 20 - i * 2, 0],
           }}
           transition={{ repeat: Infinity, duration: 6 + i, ease: "easeInOut" }}
           style={{
             top: `${i * 8 + 5}%`,
-            left: `${i * 10 + 5}%`
+            left: `${i * 10 + 5}%`,
           }}
         />
       ))}
