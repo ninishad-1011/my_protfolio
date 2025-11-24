@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
@@ -37,7 +37,7 @@ const page = () => {
             animate="visible"
             custom={0}
           >
-            Hi, I'm <span className="text-[#00ADB5]">a Web Developer</span>
+            Hi, I&apos;m <span className="text-[#00ADB5]">a Web Developer</span>
           </motion.h1>
 
           <motion.p
@@ -47,11 +47,11 @@ const page = () => {
             animate="visible"
             custom={1}
           >
-            I design and build{" "}
+           I Design & build{" "}
             <span className="text-[#00ADB5] font-semibold">responsive</span> and{" "}
             <span className="text-[#00ADB5] font-semibold">interactive</span>{" "}
-            web interfaces using modern technologies, with a focus on clean user
-            experience and performance.
+            web interfaces using modern web technologies, focusing on
+            user-friendly and visually appealing applications.
           </motion.p>
 
           <motion.div
@@ -109,9 +109,7 @@ const page = () => {
       {[...Array(10)].map((_, i) => (
         <motion.div
           key={i}
-          className={`w-${(i % 3) + 1} h-${
-            (i % 3) + 1
-          } bg-[#00ADB5] rounded-full absolute`}
+          className={`w-${(i % 3) + 1} h-${(i % 3) + 1} bg-[#00ADB5] rounded-full absolute`}
           animate={{
             y: [0, -30 + i * 5, 0],
             x: [0, 20 - i * 2, 0],
