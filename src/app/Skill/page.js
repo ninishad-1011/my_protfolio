@@ -7,14 +7,17 @@ import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs } from "react-icons/fa";
 import { SiNextdotjs, SiTailwindcss, SiMongodb } from "react-icons/si";
 
 const skills = [
-  { name: "HTML", level: "90%", icon: <FaHtml5 /> },
+  { name: "HTML", level: "95%", icon: <FaHtml5 /> },
   { name: "CSS", level: "85%", icon: <FaCss3Alt /> },
   { name: "JavaScript", level: "80%", icon: <FaJs /> },
-  { name: "React.js", level: "75%", icon: <FaReact /> },
+  { name: "React.js", level: "80%", icon: <FaReact /> },
   { name: "Next.js", level: "70%", icon: <SiNextdotjs /> },
+  {name:"TypeScript", level: "50%", icon: <SiNextdotjs />},
   { name: "Tailwind CSS", level: "85%", icon: <SiTailwindcss /> },
-  { name: "Node.js", level: "60%", icon: <FaNodeJs /> },
-  { name: "MongoDB", level: "55%", icon: <SiMongodb /> },
+  { name: "Node.js", level: "50%", icon: <FaNodeJs /> },
+  { name: "MongoDB", level: "50%", icon: <SiMongodb /> },
+  {name:"Mysql" , level: "85%", icon: <SiMongodb />}
+
 ];
 
 const Skills = () => {

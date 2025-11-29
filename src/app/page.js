@@ -6,6 +6,7 @@ import About from './about/page';
 import Skills from './Skill/page';
 import Projects from './project/page';
 import Contact from './contact/page';
+import Service from './Service/page';
 
 
 // Slick CSS imports
@@ -19,6 +20,7 @@ const Page = () => {
       <main className="overflow-x-hidden">
         <Home />
         <About />
+        <Service/>
         <Skills />
         <Projects />
         <Contact />
