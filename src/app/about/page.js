@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "@/context/themeprovider";
 
 const AboutSection = () => {
-  const { isDarkMode } = useTheme(); // get current theme
+  const { isDarkMode } = useTheme();
 
   return (
     <section
@@ -42,7 +42,7 @@ const AboutSection = () => {
             </h3>
 
             <p className={`${isDarkMode ? "text-gray-300" : "text-gray-700"} leading-relaxed mb-5`}>
-              I'm <span className="text-[#00ADB5] font-semibold">Nafiul Islam</span>, a passionate Front-End Developer from Bangladesh.  
+          I&apos;m <span className="text-[#00ADB5] font-semibold">Nafiul Islam</span> a passionate Front-End Developer from Bangladesh.  
               I love building modern, responsive, and user-friendly web applications using modern technologies.
             </p>
 
