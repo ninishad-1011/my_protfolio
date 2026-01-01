@@ -21,7 +21,7 @@ const projects = [
     title: "Portfolio",
     description:
       "My personal portfolio showcasing projects, skills, and contact form.",
-    image: "/Image/top11.png",
+    image: "/Image/portfolio.png",
     tech: ["Next.js", "React", "Tailwind CSS", "Shadcn UI","Framer Motion"],
     link: "",
   },
@@ -171,9 +171,7 @@ const ProjectsSlider = () => {
         >
           ALL Projects
         </h1>
-        <h1   className={`text-[14px] md:text-2xl font-semibold text-center mb-16 ${
-            isDarkMode ? "text-[#00ADB5]" : "text-[#0077b6]"
-          }`}> A collection of projects showcasing my skills in Front-End Development. </h1>
+        <h1  className={`${isDarkMode ? "text-gray-400" : "text-gray-600"} mt-3 max-w-xl mx-auto`}> A collection of projects showcasing my skills in Front-End Development. </h1>
 
         <Slider {...sliderSettings}>
           {projects.map((project, idx) => (

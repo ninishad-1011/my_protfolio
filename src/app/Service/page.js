@@ -52,7 +52,7 @@ const Services = () => {
           </p>
         </motion.div>
 
-        {/* Services Grid */}
+        
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <motion.div
@@ -79,8 +79,8 @@ const Services = () => {
             href="#contact"
             className={`inline-block px-8 py-3 font-semibold rounded-lg hover:scale-105 transition shadow-md ${
               isDarkMode
-                ? "bg-[#00ADB5] text-black hover:bg-[#00c1d0]"
-                : "bg-[#00c1d0] text-black hover:bg-[#00e0ff]"
+                ? "bg-[#00ADB5] text-white hover:bg-[#00c1d0]"
+                : "bg-[#00c1d0] text-white hover:bg-[#00e0ff]"
             }`}
           >
             Let’s Work Together
