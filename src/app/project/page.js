@@ -165,7 +165,7 @@ const ProjectsSlider = () => {
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <h1
-          className={`text-4xl pt-10 md:text-5xl font-bold text-center mb-1 ${
+          className={`text-4xl pt-8 md:text-5xl font-bold text-center mb-1 ${
             isDarkMode ? "text-[#00ADB5]" : "text-[#0077b6]"
           }`}
         >

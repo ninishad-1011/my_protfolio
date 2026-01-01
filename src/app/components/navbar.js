@@ -14,8 +14,8 @@ const Navbar = () => {
   const menus = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Skills", href: "/skill" },
-    { name: "Services", href: "/service" },
+    { name: "Skills", href: "/Skill" },
+    { name: "Services", href: "/Service" },
     { name: "Projects", href: "/project" },
     { name: "Contact", href: "/contact" },
   ];
