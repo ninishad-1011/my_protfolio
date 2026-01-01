@@ -13,8 +13,8 @@ const projects = [
     title: "News Portal",
     description:
       "Bangladesh 420 is a responsive Bangla news portal with latest updates, category navigation, and a user-friendly interface.",
-    image: "/Image/top11.png",
-    tech: ["TypeScript", "Next.js", "Tailwind CSS","Shadcn UI"],
+    image: "/Image/NewsPortsl.png",
+    tech: ["TypeScript", "Next.js", "Tailwind CSS","Shadcn UI","Context API"],
     link: "https://newsportal-dun-five.vercel.app/",
   },
   {
@@ -29,7 +29,7 @@ const projects = [
     title: "CUCSEAA Website",
     description:
       "CUCSEAA — an alumni community site for City University CSE graduates to connect, share events, and support each other.",
-    image: "/Image/top11.png",
+    image: "/Image/cucseaa.png",
     tech: ["Next.js", "JavaScript", "Tailwind CSS"],
     link: "https://cucseaa.org/",
   },
@@ -37,7 +37,7 @@ const projects = [
     title: "Nafi Store(E-commerce)",
     description:
       "E‑Commerce Web App — a responsive online store with product listings and cart functionality.",
-    image: "/Image/top11.png",
+    image: "/Image/e-commerce.png",
     tech: ["React", "JavaScript", "Tailwind CSS","Clerk"],
     link: "https://e-commerce-x3b2.vercel.app/",
   },
@@ -46,7 +46,7 @@ const projects = [
     title: "Real-Estate Agency",
     description:
       "NafiAgency is a responsive real estate web app showcasing property listings, featured agents, and contact details, built to help users explore homes and real estate options easily.",
-    image: "/Image/top11.png",
+    image: "/Image/Screenshot 2025-12-20 152644.png",
     tech: ["Next.js", "TypeScript", "Tailwind CSS","React Slick"],
     link: "https://realstate1-woad.vercel.app/",
   },
@@ -55,36 +55,52 @@ const projects = [
     title: "TODO App",
     description:
       "To‑Do List App — add, complete, and delete tasks with a clean, responsive UI.",
-    image: "/Image/top11.png",
+    image: "/Image/todo.png",
     tech: ["JavaScript", "HTML", "CSS"],
     link: "https://ninishad-1011.github.io/TodoList/",
   },
   ,
   {
-    title: "Portfolio",
+    title: "Landing Page",
     description:
-      "My personal portfolio showcasing projects, skills, and contact form.",
-    image: "/Image/top11.png",
-    tech: ["Next.js", "React", "Tailwind CSS"],
-    link: "",
+      "Landing page with hero section, features, and call-to-action.",
+    image: "/Image/lamdingpage.png",
+    tech: ["HTML", "CSS"],
+    link: "https://ninishad-1011.github.io/2nd-web-page/",
   },
   ,
   {
-    title: "Portfolio",
+    title: "CUCSEAA Admin Panel",
     description:
-      "My personal portfolio showcasing projects, skills, and contact form.",
-    image: "/Image/top11.png",
-    tech: ["Next.js", "React", "Tailwind CSS"],
-    link: "",
+      "Admin panel for managing alumni community site.",
+    image: "/Image/admin.png",
+    tech: ["Next.js", "JavaScript", "Tailwind CSS"],
+    link: "https://github.com/ninishad-1011/alumni_admin_dashboard",
   },
   ,
   {
-    title: "Portfolio",
+    title: "Hotel Management System",
     description:
-      "My personal portfolio showcasing projects, skills, and contact form.",
-    image: "/Image/top11.png",
-    tech: ["Next.js", "React", "Tailwind CSS"],
-    link: "",
+      "Hotel Management System is a web application that allows hotels to manage room bookings, customer details, and services efficiently, streamlining operations and improving guest experience.",
+    image: "/Image/hotel management.png",
+    tech: ["JAVA", "SWING", "NYSQL"],
+    link: "https://github.com/ninishad-1011/HotelmanagemenntSystem",
+  },
+  {
+    title: "HRMS Management System",
+    description:
+      "HRMS Management System is a comprehensive Human Resource Management System that streamlines employee data management, attendance tracking, and payroll processing, enhancing organizational efficiency and workforce management.",
+    image: "/Image/hrms.png",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    link: "https://github.com/ninishad-1011/hrms-system-frontend",
+  },
+    {
+    title: "Student Management System",
+    description:
+      "Student Management System is a web application designed to efficiently manage student records Role based AcessControl",
+    image: "/Image/download.png",
+    tech: ["HTML", "BOOTSTRAP ", "PHP", "MY SQL","CSS"],
+    link: "https://github.com/ninishad-1011/Final_Project_1011",
   },
 ];
 
@@ -113,7 +129,7 @@ const ProjectsSlider = () => {
   return (
     <section
       className={`relative py-16 px-6 min-h-screen overflow-hidden ${
-        isDarkMode ? "bg-gray-900" : "bg-white"
+        isDarkMode ? "bg-[#0B1120]" : "bg-white"
       }`}
     >
       {/* Background Gradient */}
@@ -141,7 +157,7 @@ const ProjectsSlider = () => {
         ></span>
         <span
           className={`absolute w-3 h-3 rounded-full animate-float-medium ${
-            isDarkMode ? "bg-[#00ADB5]" : "bg-[#00c1d0]"
+            isDarkMode ? "bg-[#00ADB5]" : "bg-[#99a7a8]"
           }`}
           style={{ top: "50%", left: "50%" }}
         ></span>
@@ -160,7 +176,7 @@ const ProjectsSlider = () => {
           {projects.map((project, idx) => (
             <div key={idx} className="px-2">
               <div
-                className={`relative w-full h-80 rounded-xl overflow-hidden group shadow-lg transition-transform duration-500 hover:shadow-2xl hover:scale-105 ${
+                className={`relative w-full h-80 py-5 rounded-xl overflow-hidden group shadow-lg transition-transform duration-500 hover:shadow-2xl hover:scale-105 ${
                   isDarkMode ? "" : "bg-gray-100"
                 }`}
               >
@@ -168,21 +184,21 @@ const ProjectsSlider = () => {
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover rounded-xl"
+                  className="object-contain rounded-xl"
                 />
 
                 {/* Overlay */}
                 <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/80 to-transparent rounded-xl translate-y-full group-hover:translate-y-0 transition-all duration-500 backdrop-blur-sm">
                   <h2
                     className={`text-2xl font-bold mb-2 ${
-                      isDarkMode ? "text-[#00FFD5]" : "text-[#0077b6]"
+                      isDarkMode ? "text-[#08ddb9]" : "text-[#12aefc]"
                     }`}
                   >
                     {project.title}
                   </h2>
                   <p
                     className={`mb-4 ${
-                      isDarkMode ? "text-gray-300" : "text-gray-700"
+                      isDarkMode ? "text-white font-semibold" : "text-white font-semibold"
                     }`}
                   >
                     {project.description}
@@ -226,7 +242,7 @@ const ProjectsSlider = () => {
           transform: scale(1.05) !important;
           z-index: 10;
           border: 2px solid #00adb5;
-          box-shadow: 0 10px 25px rgba(0, 173, 181, 0.5);
+          box-shadow: 0 5px 10px rgba(0, 173, 181, 0.5);
         }
         .slick-slide .group {
           transform: scale(0.85) rotateY(-5deg);
@@ -236,7 +252,8 @@ const ProjectsSlider = () => {
           transform: scale(0.85) rotateY(5deg);
         }
         .slick-dots li button:before {
-          color: #00adb5;
+          color: #00adb5 ;
+        
         }
         .slick-dots li.slick-active button:before {
           color: #00c1d0;

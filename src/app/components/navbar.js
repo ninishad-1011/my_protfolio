@@ -21,12 +21,12 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-white/80 dark:bg-[#0B1120]/80 backdrop-blur-md shadow">
+    <header className="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow">
       <nav className="container mx-auto px-6 py-4 flex items-center justify-between">
 
         {/* Logo */}
-        <Link href="/" className="text-2xl font-bold text-[#0EA5E9]">
-          Nafiul<span className="text-black dark:text-white">.</span>
+        <Link href="/" className="text-4xl font-bold text-[#00ADB5]">
+          Nafiul<span className="text-[#011f35] dark:text-white"> Islam</span>
         </Link>
 
         {/* Desktop Menu */}
@@ -35,10 +35,10 @@ const Navbar = () => {
             <li key={menu.name}>
               <Link
                 href={menu.href}
-                className={`font-medium transition ${
+                className={`font-semibold text-[20px] transition ${
                   pathname === menu.href
-                    ? "text-[#0EA5E9]"
-                    : "text-gray-700 dark:text-gray-300 hover:text-[#0EA5E9]"
+                    ? "text-[#00ADB5]"
+                    : "text-gray-700 dark:text-gray-300 hover:text-[#00ADB5]"
                 }`}
               >
                 {menu.name}

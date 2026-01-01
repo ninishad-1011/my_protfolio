@@ -32,7 +32,7 @@ const Services = () => {
   return (
     <section
       className={`py-20 ${
-        isDarkMode ? "bg-[#0f172a]" : "bg-gray-100"
+        isDarkMode ? "bg-[#0B1120]": "bg-[#F8FAFC]"
       } transition-colors duration-500`}
     >
       <div className="container mx-auto px-6">

@@ -40,7 +40,7 @@ const ContactForm = () => {
       id="contact"
       className={`min-h-screen py-20 px-6 flex items-center justify-center transition-colors duration-500 ${
         isDarkMode
-          ? "bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white"
+          ? "bg-[#0f172a] text-white"
           : "bg-gray-100 text-gray-800"
       }`}
     >
@@ -48,7 +48,7 @@ const ContactForm = () => {
         {/* Title */}
         <h2
           className={`text-4xl md:text-5xl font-extrabold text-center mb-12 ${
-            isDarkMode ? "text-[#00FFD5]" : "text-[#0077b6]"
+            isDarkMode ? "text-[#00ADB5]" : "text-[#00ADB5]"
           }`}
         >
           Contact Me
@@ -73,8 +73,8 @@ const ContactForm = () => {
             required
             className={`w-full p-4 rounded-xl focus:outline-none focus:ring-2 transition-all ${
               isDarkMode
-                ? "bg-white/10 placeholder:text-gray-300 focus:ring-[#00FFD5] text-white"
-                : "bg-gray-100 placeholder:text-gray-500 focus:ring-[#0077b6] text-gray-800"
+                ? "bg-white/10 placeholder:text-gray-300 focus:ring-[#00ADB5] text-white"
+                : "bg-gray-100 placeholder:text-gray-500 focus:ring-[#00ADB5] text-gray-800"
             }`}
           />
 
@@ -87,8 +87,8 @@ const ContactForm = () => {
             required
             className={`w-full p-4 rounded-xl focus:outline-none focus:ring-2 transition-all ${
               isDarkMode
-                ? "bg-white/10 placeholder:text-gray-300 focus:ring-[#00FFD5] text-white"
-                : "bg-gray-100 placeholder:text-gray-500 focus:ring-[#0077b6] text-gray-800"
+                ? "bg-white/10 placeholder:text-gray-300 focus:ring-[#00ADB5] text-white"
+                : "bg-gray-100 placeholder:text-gray-500 focus:ring-[#00ADB5] text-gray-800"
             }`}
           />
 
@@ -101,14 +101,14 @@ const ContactForm = () => {
             rows={6}
             className={`w-full p-4 rounded-xl focus:outline-none focus:ring-2 resize-none transition-all ${
               isDarkMode
-                ? "bg-white/10 placeholder:text-gray-300 focus:ring-[#00FFD5] text-white"
-                : "bg-gray-100 placeholder:text-gray-500 focus:ring-[#0077b6] text-gray-800"
+                ? "bg-white/10 placeholder:text-gray-300 focus:ring-[#00ADB5] text-white"
+                : "bg-gray-100 placeholder:text-gray-500 focus:ring-[#00ADB5] text-gray-800"
             }`}
           ></textarea>
 
           <button
             type="submit"
-            className="w-full py-4 bg-gradient-to-r from-[#00FFD5] to-[#00ADB5] text-black font-bold rounded-2xl hover:scale-105 transition-transform shadow-lg"
+            className="w-full py-4 bg-gradient-to-r from-[#00ADB5] to-[#00ADB5] text-black font-bold rounded-2xl hover:scale-105 transition-transform shadow-lg"
           >
             Send Message
           </button>

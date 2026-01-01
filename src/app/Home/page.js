@@ -49,7 +49,7 @@ export default function Home() {
             custom={0}
           >
             Hi, I’m{" "}
-            <span className="text-[#0EA5E9]">a Frontend Developer</span>
+            <span className="text-[#00ADB5]">a Frontend Developer</span>
           </motion.h1>
 
           <motion.p
@@ -60,7 +60,7 @@ export default function Home() {
             custom={1}
           >
             I design and build{" "}
-            <span className="text-[#0EA5E9] font-semibold">
+            <span className="text-[#00ADB5] font-semibold">
               responsive & interactive
             </span>{" "}
             web applications using modern technologies like React & Next.js.
@@ -75,15 +75,15 @@ export default function Home() {
           >
             <a
               href="/project"
-              className="px-6 py-3 bg-[#0EA5E9] text-white font-semibold rounded-lg shadow-md hover:bg-[#0284C7] transition"
+              className="px-6 py-3 bg-[#00ADB5] text-white font-semibold rounded-lg shadow-md hover:bg-[#0284C7] transition"
             >
               View Projects
             </a>
 
             <a
-              href="/cv/mycv.pdf"
+              href="/cv/Resume for me with Image.pdf"
               download
-              className="px-6 py-3 border-2 border-[#0EA5E9] text-[#0EA5E9] dark:text-white rounded-lg hover:bg-[#0EA5E9] hover:text-white transition"
+              className="px-6 py-3 border-2 border-[#00ADB5] text-[#00ADB5] dark:text-white rounded-lg hover:bg-[#00ADB5] hover:text-white transition"
             >
               Download CV
             </a>
@@ -98,12 +98,12 @@ export default function Home() {
           transition={{ duration: 1 }}
         >
           <motion.div
-            className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-[#0EA5E9] shadow-xl"
+            className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-[#00ADB5] shadow-xl"
             animate={{ y: [0, -12, 0] }}
             transition={{ repeat: Infinity, duration: 4 }}
           >
             <Image
-              src="/Image/hand-drawn-web-developers_23-2148819604.avif"
+              src="/Image/WhatsApp Image 2026-01-01 at 9.02.40 PM.jpeg"
               alt="Developer"
               fill
               className="object-cover"
