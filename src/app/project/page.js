@@ -128,13 +128,13 @@ const ProjectsSlider = () => {
 
   return (
     <section
-      className={`relative py-16 px-6 min-h-screen overflow-hidden ${
+      className={`relative  py-16 px-6 min-h-screen overflow-hidden ${
         isDarkMode ? "bg-[#0B1120]" : "bg-white"
       }`}
     >
       {/* Background Gradient */}
       <div
-        className={`absolute inset-0 -z-10 ${
+        className={`  absolute inset-0 -z-10 ${
           isDarkMode
             ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
             : "bg-gradient-to-br from-gray-100 via-gray-200 to-gray-100"
@@ -165,7 +165,7 @@ const ProjectsSlider = () => {
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <h1
-          className={`text-4xl md:text-5xl font-bold text-center mb-1 ${
+          className={`text-4xl pt-10 md:text-5xl font-bold text-center mb-1 ${
             isDarkMode ? "text-[#00ADB5]" : "text-[#0077b6]"
           }`}
         >
