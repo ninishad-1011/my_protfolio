@@ -3,15 +3,12 @@
 import React, { useRef, useState } from "react";
 import { useTheme } from "@/context/themeprovider";
 import emailjs from "emailjs-com";
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
 
 const ContactForm = () => {
-  const { isDarkMode } = useTheme(); // get current theme
+  const { isDarkMode } = useTheme();
   const form = useRef();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,7 +16,6 @@ const ContactForm = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-
     emailjs
       .sendForm(
         "service_aw8frv1",
@@ -31,28 +27,62 @@ const ContactForm = () => {
         () => alert("Message sent successfully!"),
         () => alert("Failed to send message. Try again later.")
       );
-
     setFormData({ name: "", email: "", message: "" });
   };
 
   return (
     <section
       id="contact"
-      className={`min-h-screen py-20 px-6 flex items-center justify-center transition-colors duration-500 ${
-        isDarkMode
-          ? "bg-[#0f172a] text-white"
-          : "bg-gray-100 text-gray-800"
+      className={`min-h-screen py-20 px-6 flex flex-col items-center justify-center transition-colors duration-500 ${
+        isDarkMode ? "bg-[#0f172a] text-white" : "bg-gray-100 text-gray-800"
       }`}
     >
       <div className="container mx-auto max-w-3xl">
         {/* Title */}
         <h2
-          className={`text-4xl md:text-5xl font-extrabold text-center mb-12 ${
+          className={`text-4xl md:text-5xl font-extrabold text-center mb-4 ${
             isDarkMode ? "text-[#00ADB5]" : "text-[#00ADB5]"
           }`}
         >
           Contact Me
         </h2>
+
+        {/* Subtitle */}
+        <p className="text-center text-gray-400 mb-10">
+          Reach out to me via the form below or through my email, phone, GitHub, or LinkedIn.
+        </p>
+
+        {/* Contact Info */}
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-12 text-lg">
+          <a
+            href="mailto:nafiul@example.com"
+            className="flex items-center gap-2 hover:text-[#00ADB5] transition-colors"
+          >
+            <FaEnvelope /> nafiul1011@example.com
+          </a>
+          <a
+            href="tel:+880123456789"
+            className="flex items-center gap-2 hover:text-[#00ADB5] transition-colors"
+          >
+            <FaPhone /> +881571117435
+          </a>
+          <a
+            href="https://github.com/ninishad-1011"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:text-[#00ADB5] transition-colors"
+          >
+            <FaGithub /> GitHub
+          </a>
+          <a
+            href="https://linkedin.com/in/nafiul1011"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:text-[#00ADB5] transition-colors"
+          >
+            <FaLinkedin /> LinkedIn
+          </a>
+        </div>
 
         {/* Glassmorphic Form */}
         <form

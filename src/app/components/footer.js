@@ -28,7 +28,7 @@ const Footer = () => {
             <FaGithub size={24} />
           </a>
           <a
-            href="https://linkedin.com/"
+            href="https://www.linkedin.com/in/nafiul1011"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[#00ADB5] hover:scale-110 transition-all duration-300"
@@ -44,7 +44,7 @@ const Footer = () => {
             <FaTwitter size={24} />
           </a>
           <a
-            href="mailto:nafiul@example.com"
+            href="mailto:nafiul1011@example.com"
             className="hover:text-[#00ADB5] hover:scale-110 transition-all duration-300"
           >
             <FaEnvelope size={24} />
