@@ -4,6 +4,8 @@ import React, { useRef, useState } from "react";
 import { useTheme } from "@/context/themeprovider";
 import emailjs from "emailjs-com";
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
+import Swal from "sweetalert2";
+
 
 const ContactForm = () => {
   const { isDarkMode } = useTheme();
@@ -24,9 +26,24 @@ const ContactForm = () => {
         "9PXgQmNrARA8aN6P4"
       )
       .then(
-        () => alert("Message sent successfully!"),
-        () => alert("Failed to send message. Try again later.")
-      );
+  () => {
+    Swal.fire({
+      icon: "success",
+      title: "Message Sent!",
+      text: "Thank you for reaching out. I will respond as soon as possible.",
+      confirmButtonColor: "#00ADB5",
+    });
+  },
+  () => {
+    Swal.fire({
+      icon: "error",
+      title: "Oops!",
+      text: "Failed to send message. Try again later.",
+      confirmButtonColor: "#00ADB5",
+    });
+  }
+);
+
     setFormData({ name: "", email: "", message: "" });
   };
 

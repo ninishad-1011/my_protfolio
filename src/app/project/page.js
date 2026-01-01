@@ -173,7 +173,7 @@ const ProjectsSlider = () => {
         </h1>
         <h1   className={`text-[14px] md:text-2xl font-semibold text-center mb-16 ${
             isDarkMode ? "text-[#00ADB5]" : "text-[#0077b6]"
-          }`}> A collection of projects showcasing my skills in front-end development. </h1>
+          }`}> A collection of projects showcasing my skills in Front-End Development. </h1>
 
         <Slider {...sliderSettings}>
           {projects.map((project, idx) => (
