@@ -1,54 +1,94 @@
-import React from 'react'
+"use client";
+import { motion } from "framer-motion";
+import { useTheme } from "@/context/themeprovider";
+import { Code2, Layout, Database, Rocket } from "lucide-react";
 
-const Page = () => {
+const Services = () => {
+  const { isDarkMode } = useTheme(); // get current theme
+
+  const services = [
+    {
+      icon: <Layout size={40} />,
+      title: "Frontend Development",
+      desc: "Modern, responsive and user-friendly interfaces using React, Next.js, Tailwind CSS and clean UI principles.",
+    },
+    {
+      icon: <Code2 size={40} />,
+      title: "Web Application Development",
+      desc: "Building dynamic web applications with proper routing, state management and optimized performance.",
+    },
+    {
+      icon: <Database size={40} />,
+      title: "Backend Integration",
+      desc: "API integration, authentication handling and backend communication using Node.js & REST APIs.",
+    },
+    {
+      icon: <Rocket size={40} />,
+      title: "Website Optimization",
+      desc: "Improving website speed, responsiveness, SEO structure and overall performance.",
+    },
+  ];
+
   return (
-    <div>
-      <section className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4">
+    <section
+      className={`py-20 ${
+        isDarkMode ? "bg-[#0f172a]" : "bg-gray-100"
+      } transition-colors duration-500`}
+    >
+      <div className="container mx-auto px-6">
 
-          {/* Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">My Services</h2>
-            <p className="text-gray-600 text-lg max-w-xl mx-auto">
-              I offer high-quality web development services to help businesses grow online.
-            </p>
-          </div>
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-14"
+        >
+          <h2 className={`${isDarkMode ? "text-white" : "text-gray-800"} text-4xl font-bold`}>
+            My <span className="text-[#00ADB5]">Services</span>
+          </h2>
+          <p className={`${isDarkMode ? "text-gray-400" : "text-gray-600"} mt-3 max-w-xl mx-auto`}>
+            Here are the services I provide to help build modern and scalable web applications.
+          </p>
+        </motion.div>
 
-          {/* Services Flex */}
-          <div className="flex flex-wrap justify-center gap-8">
-            {/* Service 1 */}
-            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 w-80">
-              <div className="text-purple-600 mb-4">
-                <svg className="w-12 h-12 mx-auto" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M13 5v6h6M5 10v10h14V10"/>
-                </svg>
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className={`rounded-xl p-8 text-center hover:scale-105 transition duration-300 shadow-lg ${
+                isDarkMode ? "bg-[#1e293b] text-white" : "bg-white text-gray-800"
+              }`}
+            >
+              <div className={`${isDarkMode ? "text-[#00ADB5]" : "text-[#0077b6]"} mb-5 flex justify-center`}>
+                {service.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-800 text-center">Web Development</h3>
-              <p className="text-gray-600 text-center">Creating responsive and modern websites using HTML, CSS, JavaScript, and React.js.</p>
-            </div>
-
-            {/* Service 2 */}
-            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 w-80">
-              <div className="text-purple-600 mb-4">
-                <svg className="w-12 h-12 mx-auto" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M20 13V5a2 2 0 00-2-2H6a2 2 0 00-2 2v8m16 0H4m16 0v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-800 text-center">Backend Development</h3>
-              <p className="text-gray-600 text-center">Building scalable APIs and server-side logic with Node.js, Express, and MongoDB.</p>
-            </div>
-          </div>
-
-          {/* CTA Button */}
-          <div className="text-center mt-12">
-            <a href="#contact" className="inline-block bg-purple-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-purple-700 transition duration-300">
-              Hire Me
-            </a>
-          </div>
+              <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+              <p className="text-sm leading-relaxed">{service.desc}</p>
+            </motion.div>
+          ))}
         </div>
-      </section>
-    </div>
-  )
-}
 
-export default Page
+        {/* CTA */}
+        <div className="text-center mt-14">
+          <a
+            href="#contact"
+            className={`inline-block px-8 py-3 font-semibold rounded-lg hover:scale-105 transition shadow-md ${
+              isDarkMode
+                ? "bg-[#00ADB5] text-black hover:bg-[#00c1d0]"
+                : "bg-[#00c1d0] text-black hover:bg-[#00e0ff]"
+            }`}
+          >
+            Let’s Work Together
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Services;

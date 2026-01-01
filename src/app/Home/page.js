@@ -1,128 +1,116 @@
-'use client';
+"use client";
+
 import Image from "next/image";
-import React from "react";
 import { motion } from "framer-motion";
 
-const page = () => {
-  // Text animation variants
+export default function Home() {
   const textVariant = {
     hidden: { opacity: 0, y: 20 },
     visible: (i) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.3, duration: 1 },
+      transition: { delay: i * 0.3, duration: 0.8 },
     }),
   };
 
   return (
-    <div
-      className="min-h-screen bg-cover bg-center bg-no-repeat relative flex items-center"
-      style={{ backgroundImage: "url('/Image/Group 323[1].png')" }}
-    >
-      {/* Overlay */}
-      <motion.div
-        className="absolute inset-0 bg-black/60"
-        initial={{ opacity: 0, scale: 1.1 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1 }}
-      />
+    <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#0B1120] transition-colors duration-500 flex items-center relative overflow-hidden">
 
-      <div className="container mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between px-6 md:px-0 py-16">
-        {/* Text Section */}
-        <div className="md:w-1/2 text-center md:text-left space-y-6">
+      {/* Floating particles */}
+      {[...Array(10)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-2 h-2 bg-[#0EA5E9]/40 dark:bg-[#38BDF8]/40 rounded-full"
+          animate={{
+            y: [0, -30, 0],
+            x: [0, 20, 0],
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: 6 + i,
+            ease: "easeInOut",
+          }}
+          style={{
+            top: `${i * 10 + 10}%`,
+            left: `${i * 8 + 5}%`,
+          }}
+        />
+      ))}
+
+      <div className="container mx-auto px-6 py-20 flex flex-col md:flex-row items-center justify-between relative z-10">
+
+        {/* TEXT SECTION */}
+        <div className="md:w-1/2 space-y-6 text-center md:text-left">
           <motion.h1
-            className="text-white text-3xl md:text-5xl font-bold leading-snug"
+            className="text-3xl md:text-5xl font-bold text-[#0F172A] dark:text-white"
             variants={textVariant}
             initial="hidden"
             animate="visible"
             custom={0}
           >
-            Hi, I&apos;m <span className="text-[#00ADB5]">a Web Developer</span>
+            Hi, I’m{" "}
+            <span className="text-[#0EA5E9]">a Frontend Developer</span>
           </motion.h1>
 
           <motion.p
-            className="text-gray-200 text-lg md:text-xl"
+            className="text-[#334155] dark:text-gray-300 text-lg"
             variants={textVariant}
             initial="hidden"
             animate="visible"
             custom={1}
           >
-           I Design & build{" "}
-            <span className="text-[#00ADB5] font-semibold">responsive</span> and{" "}
-            <span className="text-[#00ADB5] font-semibold">interactive</span>{" "}
-            web interfaces using modern web technologies, focusing on
-            user-friendly and visually appealing applications.
+            I design and build{" "}
+            <span className="text-[#0EA5E9] font-semibold">
+              responsive & interactive
+            </span>{" "}
+            web applications using modern technologies like React & Next.js.
           </motion.p>
 
           <motion.div
-            className="flex justify-center md:justify-start gap-4 flex-wrap"
+            className="flex gap-4 justify-center md:justify-start"
             variants={textVariant}
             initial="hidden"
             animate="visible"
             custom={2}
           >
-            <motion.a
-              href="/project" // Update with your project page link
-              whileHover={{ scale: 1.1, boxShadow: "0 0 15px #00ADB5" }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 bg-[#00ADB5] text-black font-semibold rounded-lg shadow-lg transition duration-300 inline-block"
+            <a
+              href="/project"
+              className="px-6 py-3 bg-[#0EA5E9] text-white font-semibold rounded-lg shadow-md hover:bg-[#0284C7] transition"
             >
-              View My Projects
-            </motion.a>
+              View Projects
+            </a>
 
-            <motion.a
-              href="/cv/ACP-DL_ A Deep Learning Long Short-Term_Memory Model to Predict Anticancer Peptides_Using High.pdf" // Place CV in public/CV folder
+            <a
+              href="/cv/mycv.pdf"
               download
-              whileHover={{ scale: 1.1, boxShadow: "0 0 15px #00ADB5" }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 bg-transparent border-2 border-[#00ADB5] text-white font-semibold rounded-lg shadow-lg hover:bg-[#00ADB5] hover:text-black transition duration-300"
+              className="px-6 py-3 border-2 border-[#0EA5E9] text-[#0EA5E9] dark:text-white rounded-lg hover:bg-[#0EA5E9] hover:text-white transition"
             >
-              Download My CV
-            </motion.a>
+              Download CV
+            </a>
           </motion.div>
         </div>
 
-        {/* Image Section */}
+        {/* IMAGE SECTION */}
         <motion.div
-          className="md:w-1/2 flex justify-center mt-10 md:mt-0"
-          initial={{ opacity: 0, y: 50, rotate: -5 }}
-          animate={{ opacity: 1, y: 0, rotate: 0 }}
-          transition={{ duration: 1.2, delay: 0.8 }}
-          whileHover={{ scale: 1.05, rotate: 3 }}
+          className="md:w-1/2 flex justify-center mt-12 md:mt-0"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
         >
           <motion.div
-            className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-[#00ADB5]"
-            animate={{ y: [0, -15, 0] }}
-            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+            className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-[#0EA5E9] shadow-xl"
+            animate={{ y: [0, -12, 0] }}
+            transition={{ repeat: Infinity, duration: 4 }}
           >
             <Image
-              src="/Image/top11.png"
-              alt="developer"
+              src="/Image/hand-drawn-web-developers_23-2148819604.avif"
+              alt="Developer"
               fill
               className="object-cover"
             />
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Floating Particles */}
-      {[...Array(10)].map((_, i) => (
-        <motion.div
-          key={i}
-          className={`w-${(i % 3) + 1} h-${(i % 3) + 1} bg-[#00ADB5] rounded-full absolute`}
-          animate={{
-            y: [0, -30 + i * 5, 0],
-            x: [0, 20 - i * 2, 0],
-          }}
-          transition={{ repeat: Infinity, duration: 6 + i, ease: "easeInOut" }}
-          style={{
-            top: `${i * 8 + 5}%`,
-            left: `${i * 10 + 5}%`,
-          }}
-        />
-      ))}
     </div>
   );
-};
-
-export default page;
+}

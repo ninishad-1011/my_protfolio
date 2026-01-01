@@ -3,96 +3,167 @@
 import React from "react";
 import Image from "next/image";
 import Slider from "react-slick";
+import { useTheme } from "@/context/themeprovider";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const projects = [
   {
-    title: "E-commerce Website",
+    title: "News Portal",
     description:
-      "A full-stack e-commerce platform with shopping cart, payment gateway, and admin panel.",
+      "Bangladesh 420 is a responsive Bangla news portal with latest updates, category navigation, and a user-friendly interface.",
     image: "/Image/top11.png",
-    tech: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
-    link: "#",
+    tech: ["TypeScript", "Next.js", "Tailwind CSS","Shadcn UI"],
+    link: "https://newsportal-dun-five.vercel.app/",
   },
   {
-    title: "Portfolio Website",
+    title: "Portfolio",
+    description:
+      "My personal portfolio showcasing projects, skills, and contact form.",
+    image: "/Image/top11.png",
+    tech: ["Next.js", "React", "Tailwind CSS", "Shadcn UI","Framer Motion"],
+    link: "",
+  },
+  {
+    title: "CUCSEAA Website",
+    description:
+      "CUCSEAA — an alumni community site for City University CSE graduates to connect, share events, and support each other.",
+    image: "/Image/top11.png",
+    tech: ["Next.js", "JavaScript", "Tailwind CSS"],
+    link: "https://cucseaa.org/",
+  },
+  {
+    title: "Nafi Store(E-commerce)",
+    description:
+      "E‑Commerce Web App — a responsive online store with product listings and cart functionality.",
+    image: "/Image/top11.png",
+    tech: ["React", "JavaScript", "Tailwind CSS","Clerk"],
+    link: "https://e-commerce-x3b2.vercel.app/",
+  },
+  ,
+  {
+    title: "Real-Estate Agency",
+    description:
+      "NafiAgency is a responsive real estate web app showcasing property listings, featured agents, and contact details, built to help users explore homes and real estate options easily.",
+    image: "/Image/top11.png",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS","React Slick"],
+    link: "https://realstate1-woad.vercel.app/",
+  },
+  
+  {
+    title: "TODO App",
+    description:
+      "To‑Do List App — add, complete, and delete tasks with a clean, responsive UI.",
+    image: "/Image/top11.png",
+    tech: ["JavaScript", "HTML", "CSS"],
+    link: "https://ninishad-1011.github.io/TodoList/",
+  },
+  ,
+  {
+    title: "Portfolio",
     description:
       "My personal portfolio showcasing projects, skills, and contact form.",
     image: "/Image/top11.png",
     tech: ["Next.js", "React", "Tailwind CSS"],
-    link: "#",
+    link: "",
   },
+  ,
   {
-    title: "ToDo App",
+    title: "Portfolio",
     description:
-      "A modern todo app with CRUD operations and local storage support.",
+      "My personal portfolio showcasing projects, skills, and contact form.",
     image: "/Image/top11.png",
-    tech: ["React", "JavaScript", "CSS"],
-    link: "#",
+    tech: ["Next.js", "React", "Tailwind CSS"],
+    link: "",
   },
+  ,
   {
-    title: "Blog Platform",
+    title: "Portfolio",
     description:
-      "A blogging platform where users can write, edit, and delete posts.",
+      "My personal portfolio showcasing projects, skills, and contact form.",
     image: "/Image/top11.png",
-    tech: ["Next.js", "MongoDB", "Node.js", "Tailwind CSS"],
-    link: "#",
+    tech: ["Next.js", "React", "Tailwind CSS"],
+    link: "",
   },
 ];
 
+const sliderSettings = {
+  dots: true,
+  infinite: true,
+  speed: 800,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  pauseOnHover: true,
+  arrows: true,
+  centerMode: true,
+  centerPadding: "0px",
+  responsive: [
+    { breakpoint: 1024, settings: { slidesToShow: 3, centerPadding: "0px" } },
+    { breakpoint: 768, settings: { slidesToShow: 1, centerPadding: "0px" } },
+    { breakpoint: 480, settings: { slidesToShow: 1, centerPadding: "0px" } },
+  ],
+};
+
 const ProjectsSlider = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 800,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    pauseOnHover: true,
-    arrows: true,
-    centerMode: true,
-    centerPadding: "0px",
-    responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 3, centerPadding: "0px" } },
-      { breakpoint: 768, settings: { slidesToShow: 1, centerPadding: "0px" } },
-      { breakpoint: 480, settings: { slidesToShow: 1, centerPadding: "0px" } },
-    ],
-  };
+  const { isDarkMode } = useTheme(); // Get current theme
 
   return (
-    <div className="relative min-h-screen py-16 px-6 overflow-hidden">
-      {/* Fixed Deep Gradient Background */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#0b0c0f] via-[#121217] to-[#0b0c0f]"></div>
+    <section
+      className={`relative py-16 px-6 min-h-screen overflow-hidden ${
+        isDarkMode ? "bg-gray-900" : "bg-white"
+      }`}
+    >
+      {/* Background Gradient */}
+      <div
+        className={`absolute inset-0 -z-10 ${
+          isDarkMode
+            ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+            : "bg-gradient-to-br from-gray-100 via-gray-200 to-gray-100"
+        }`}
+      ></div>
 
       {/* Floating Particles */}
       <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="w-2 h-2 bg-[#1c1e22] rounded-full absolute animate-float"
+        <span
+          className={`absolute w-2 h-2 rounded-full animate-float ${
+            isDarkMode ? "bg-[#1c1e22]" : "bg-gray-400"
+          }`}
           style={{ top: "25%", left: "15%" }}
-        ></div>
-        <div
-          className="w-1.5 h-1.5 bg-[#2a2c30] rounded-full absolute animate-float-slow"
+        ></span>
+        <span
+          className={`absolute w-1.5 h-1.5 rounded-full animate-float-slow ${
+            isDarkMode ? "bg-[#2a2c30]" : "bg-gray-300"
+          }`}
           style={{ top: "70%", left: "75%" }}
-        ></div>
-        <div
-          className="w-3 h-3 bg-[#00ADB5] rounded-full absolute animate-float-medium"
+        ></span>
+        <span
+          className={`absolute w-3 h-3 rounded-full animate-float-medium ${
+            isDarkMode ? "bg-[#00ADB5]" : "bg-[#00c1d0]"
+          }`}
           style={{ top: "50%", left: "50%" }}
-        ></div>
+        ></span>
       </div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
-        <h1 className="text-4xl font-bold text-center text-white mb-16">
+        <h1
+          className={`text-4xl md:text-5xl font-bold text-center mb-16 ${
+            isDarkMode ? "text-[#00ADB5]" : "text-[#0077b6]"
+          }`}
+        >
           My Projects
         </h1>
 
-        <Slider {...settings}>
-          {projects.map((project, index) => (
-            <div key={index} className="px-2">
-              <div className="relative w-full h-80 rounded-xl overflow-hidden group transition-transform duration-500 shadow-lg hover:shadow-2xl hover:scale-105">
-                {/* Project Image */}
+        <Slider {...sliderSettings}>
+          {projects.map((project, idx) => (
+            <div key={idx} className="px-2">
+              <div
+                className={`relative w-full h-80 rounded-xl overflow-hidden group shadow-lg transition-transform duration-500 hover:shadow-2xl hover:scale-105 ${
+                  isDarkMode ? "" : "bg-gray-100"
+                }`}
+              >
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -101,16 +172,30 @@ const ProjectsSlider = () => {
                 />
 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6 rounded-xl translate-y-full group-hover:translate-y-0 transition-all duration-500 backdrop-blur-sm">
-                  <h2 className="text-2xl font-bold mb-2 text-[#00ADB5]">
+                <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/80 to-transparent rounded-xl translate-y-full group-hover:translate-y-0 transition-all duration-500 backdrop-blur-sm">
+                  <h2
+                    className={`text-2xl font-bold mb-2 ${
+                      isDarkMode ? "text-[#00FFD5]" : "text-[#0077b6]"
+                    }`}
+                  >
                     {project.title}
                   </h2>
-                  <p className="text-gray-300 mb-4">{project.description}</p>
+                  <p
+                    className={`mb-4 ${
+                      isDarkMode ? "text-gray-300" : "text-gray-700"
+                    }`}
+                  >
+                    {project.description}
+                  </p>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech, idx) => (
+                    {project.tech.map((tech, techIdx) => (
                       <span
-                        key={idx}
-                        className="bg-[#00ADB5] text-black px-2 py-1 rounded text-sm"
+                        key={techIdx}
+                        className={`px-2 py-1 rounded text-sm ${
+                          isDarkMode
+                            ? "bg-[#00ADB5] text-black"
+                            : "bg-[#00c1d0] text-black"
+                        }`}
                       >
                         {tech}
                       </span>
@@ -120,7 +205,11 @@ const ProjectsSlider = () => {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block bg-[#00ADB5] text-black px-4 py-2 rounded font-medium hover:bg-[#00c1d0] transition-colors shadow-md hover:shadow-lg"
+                    className={`inline-block px-4 py-2 rounded font-medium shadow-md hover:shadow-lg transition-colors ${
+                      isDarkMode
+                        ? "bg-[#00ADB5] text-black hover:bg-[#00c1d0]"
+                        : "bg-[#00c1d0] text-black hover:bg-[#00e0ff]"
+                    }`}
                   >
                     View Project
                   </a>
@@ -131,16 +220,14 @@ const ProjectsSlider = () => {
         </Slider>
       </div>
 
+      {/* Global styles for slider */}
       <style jsx global>{`
-        /* Center card bigger with border + glow */
         .slick-center .group {
           transform: scale(1.05) !important;
           z-index: 10;
           border: 2px solid #00adb5;
           box-shadow: 0 10px 25px rgba(0, 173, 181, 0.5);
         }
-
-        /* Side cards smaller + rotate */
         .slick-slide .group {
           transform: scale(0.85) rotateY(-5deg);
           z-index: 1;
@@ -148,8 +235,6 @@ const ProjectsSlider = () => {
         .slick-slide.slick-center ~ .slick-slide {
           transform: scale(0.85) rotateY(5deg);
         }
-
-        /* Slider dots */
         .slick-dots li button:before {
           color: #00adb5;
         }
@@ -157,7 +242,6 @@ const ProjectsSlider = () => {
           color: #00c1d0;
         }
 
-        /* Floating particles animation */
         @keyframes float {
           0%,
           100% {
@@ -185,6 +269,7 @@ const ProjectsSlider = () => {
             transform: translateY(-25px) translateX(15px);
           }
         }
+
         .animate-float {
           animation: float 6s ease-in-out infinite;
         }
@@ -195,7 +280,7 @@ const ProjectsSlider = () => {
           animation: float-medium 8s ease-in-out infinite;
         }
       `}</style>
-    </div>
+    </section>
   );
 };
 

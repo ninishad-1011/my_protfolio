@@ -1,82 +1,93 @@
 "use client";
-import Image from "next/image";
-import React from "react";
 import { motion } from "framer-motion";
+import { useTheme } from "@/context/themeprovider";
 
-const page = () => {
-  // Animation variants
-  const textVariant = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1.2 } },
-  };
-
-  const imageVariant = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 1.2, delay: 0.3 } },
-  };
+const AboutSection = () => {
+  const { isDarkMode } = useTheme(); // get current theme
 
   return (
-    <div
-      className="w-full h-[75vh] bg-cover bg-center bg-no-repeat relative flex items-center justify-center"
-      style={{ backgroundImage: "url('/Image/Group 324.png')" }}
+    <section
+      className={`w-full py-20 transition-colors duration-500 ${
+        isDarkMode ? "bg-[#0f172a] text-white" : "bg-gray-100 text-gray-800"
+      }`}
     >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60"></div>
+      <div className="container mx-auto px-6">
 
-      <div className="container mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 px-6 md:px-0">
-        
-        {/* Image Section */}
+        {/* Heading */}
         <motion.div
-          className="md:w-1/2 flex justify-center md:justify-start"
-          initial="hidden"
-          animate="visible"
-          variants={imageVariant}
-          whileHover={{ scale: 1.05 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-14"
         >
-          <Image
-            src="/Image/WhatsApp Image 2025-11-13 at 19.05.52_1f28799b.jpg"
-            alt="developer"
-            width={300}
-            height={300}
-            className="rounded-full border-white border-2 shadow-2xl"
-          />
+          <h2 className={`text-4xl font-bold ${isDarkMode ? "text-white" : "text-gray-800"}`}>
+            About <span className="text-[#00ADB5]">Me</span>
+          </h2>
+          <p className={`${isDarkMode ? "text-gray-400" : "text-gray-600"} mt-3 max-w-2xl mx-auto`}>
+            Get to know more about me and my journey as a Front-End Developer.
+          </p>
         </motion.div>
 
-        {/* Text Section */}
-        <motion.div
-          className="md:w-1/2 text-center md:text-left"
-          initial="hidden"
-          animate="visible"
-          variants={textVariant}
-        >
-          <h1 className="text-white text-[14px] md:text-2xl font-semibold leading-snug p-4 rounded">
-            I am <span className="text-[#00ADB5] font-bold">Nafiul Islam</span>, a passionate Frontend Developer with an interest
-            in exploring Backend development. I am from Bangladesh and currently
-            working at Nexcent Tech Company, Dhaka as a Junior Software
-            Engineer. I am also in my final semester at City University,
-            Department of CSE. I specialize in using modern web technologies to
-            build responsive and interactive web applications, ensuring clean,
-            efficient, and maintainable code.
-          </h1>
-        </motion.div>
+        {/* Content */}
+        <div className="grid md:grid-cols-2 gap-12 items-center">
 
+          {/* Left Text */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h3 className={`text-2xl font-semibold mb-4 ${isDarkMode ? "text-white" : "text-gray-800"}`}>
+              Who Am I?
+            </h3>
+
+            <p className={`${isDarkMode ? "text-gray-300" : "text-gray-700"} leading-relaxed mb-5`}>
+              I'm <span className="text-[#00ADB5] font-semibold">Nafiul Islam</span>, a passionate Front-End Developer from Bangladesh.  
+              I love building modern, responsive, and user-friendly web applications using modern technologies.
+            </p>
+
+            <p className={`${isDarkMode ? "text-gray-300" : "text-gray-700"} leading-relaxed mb-6`}>
+              Currently, I’m focusing on improving my frontend expertise while gradually exploring backend development.  
+              I always try to write clean, scalable, and maintainable code.
+            </p>
+
+            <div className="flex gap-8 mt-6">
+              <div>
+                <h4 className="text-3xl font-bold text-[#00ADB5]">1+</h4>
+                <p className={`${isDarkMode ? "text-gray-400" : "text-gray-600"} text-sm`}>Years Experience</p>
+              </div>
+              <div>
+                <h4 className="text-3xl font-bold text-[#00ADB5]">10+</h4>
+                <p className={`${isDarkMode ? "text-gray-400" : "text-gray-600"} text-sm`}>Projects Completed</p>
+              </div>
+              <div>
+                <h4 className="text-3xl font-bold text-[#00ADB5]">100%</h4>
+                <p className={`${isDarkMode ? "text-gray-400" : "text-gray-600"} text-sm`}>Dedication</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right Side Design Box */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className={`rounded-2xl p-10 shadow-lg transition-colors duration-500 ${
+              isDarkMode ? "bg-[#1e293b] text-white" : "bg-white text-gray-800"
+            }`}
+          >
+            <h3 className={`text-xl font-semibold mb-4 ${isDarkMode ? "text-white" : "text-gray-800"}`}>
+              My Goal
+            </h3>
+            <p className={`${isDarkMode ? "text-gray-300" : "text-gray-700"} leading-relaxed`}>
+              My goal is to become a skilled Full-Stack Developer and work on impactful projects that solve real-world problems. I believe in continuous learning and improving myself every day.
+            </p>
+          </motion.div>
+
+        </div>
       </div>
-
-      {/* Floating particles for animation */}
-      <motion.div
-        className="absolute w-3 h-3 bg-[#00ADB5] rounded-full"
-        animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
-        transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-        style={{ top: "20%", left: "15%" }}
-      />
-      <motion.div
-        className="absolute w-2 h-2 bg-white rounded-full"
-        animate={{ y: [0, 20, 0], x: [0, -20, 0] }}
-        transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
-        style={{ top: "70%", left: "80%" }}
-      />
-    </div>
+    </section>
   );
 };
 
-export default page;
+export default AboutSection;
