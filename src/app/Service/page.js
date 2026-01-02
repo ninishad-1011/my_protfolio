@@ -4,7 +4,7 @@ import { useTheme } from "@/context/themeprovider";
 import { Code2, Layout, Database, Rocket } from "lucide-react";
 
 const Services = () => {
-  const { isDarkMode } = useTheme(); // get current theme
+  const { isDarkMode } = useTheme();
 
   const services = [
     {
