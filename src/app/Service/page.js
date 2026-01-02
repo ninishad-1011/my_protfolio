@@ -47,7 +47,7 @@ const Services = () => {
           <h2 className={`${isDarkMode ? "text-white" : "text-gray-800"} text-4xl font-bold`}>
             My <span className="text-[#00ADB5]">Services</span>
           </h2>
-          <p className={`${isDarkMode ? "text-gray-400" : "text-gray-600"} mt-3 max-w-xl mx-auto`}>
+          <p className={`${isDarkMode ? "text-gray-400" : "text-gray-600"} mb-3 mt-3 max-w-xl mx-auto`}>
             Here are the services I provide to help build modern and scalable web applications.
           </p>
         </motion.div>
