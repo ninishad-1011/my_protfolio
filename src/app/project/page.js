@@ -2,11 +2,12 @@
 
 import React from "react";
 import Image from "next/image";
-import Slider from "react-slick";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
 import { useTheme } from "@/context/themeprovider";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import "swiper/css";
+import "swiper/css/pagination";
 
 const projects = [
   {
@@ -14,288 +15,204 @@ const projects = [
     description:
       "Bangladesh 420 is a responsive Bangla news portal with latest updates, category navigation, and a user-friendly interface.",
     image: "/Image/NewsPortsl.png",
-    tech: ["TypeScript", "Next.js", "Tailwind CSS","Shadcn UI","Context API"],
+    tech: ["TypeScript", "Next.js", "Tailwind", "Shadcn UI", "Context API"],
     link: "https://newsportal-dun-five.vercel.app/",
   },
   {
     title: "Portfolio",
     description:
-      "My personal portfolio showcasing projects, skills, and contact form.",
+      "Personal portfolio showcasing projects, skills, and contact information.",
     image: "/Image/portfolio.png",
-    tech: ["Next.js", "React", "Tailwind CSS", "Shadcn UI","Framer Motion"],
-    link: "",
+    tech: ["Next.js", "React", "Tailwind", "Framer Motion"],
+    link: "https://my-protfolio-eoa5.vercel.app/",
   },
   {
-    title: "CUCSEAA Website",
+    title: "Nafi Store (E-Commerce)",
     description:
-      "CUCSEAA — an alumni community site for City University CSE graduates to connect, share events, and support each other.",
-    image: "/Image/cucseaa.png",
-    tech: ["Next.js", "JavaScript", "Tailwind CSS"],
-    link: "https://cucseaa.org/",
-  },
-  {
-    title: "Nafi Store(E-commerce)",
-    description:
-      "E‑Commerce Web App — a responsive online store with product listings and cart functionality.",
+      "Responsive e-commerce platform with product listings and cart system.",
     image: "/Image/e-commerce.png",
-    tech: ["React", "JavaScript", "Tailwind CSS","Clerk"],
+    tech: ["React", "JavaScript", "Tailwind", "Clerk"],
     link: "https://e-commerce-x3b2.vercel.app/",
   },
-  ,
   {
     title: "Real-Estate Agency",
     description:
-      "NafiAgency is a responsive real estate web app showcasing property listings, featured agents, and contact details, built to help users explore homes and real estate options easily.",
+      "Modern real-estate website with property listings and agent details.",
     image: "/Image/Screenshot 2025-12-20 152644.png",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS","React Slick"],
+    tech: ["Next.js", "TypeScript", "Tailwind"],
     link: "https://realstate1-woad.vercel.app/",
   },
-  
   {
     title: "TODO App",
-    description:
-      "To‑Do List App — add, complete, and delete tasks with a clean, responsive UI.",
+    description: "Simple and clean task management app with CRUD operations.",
     image: "/Image/todo.png",
     tech: ["JavaScript", "HTML", "CSS"],
     link: "https://ninishad-1011.github.io/TodoList/",
   },
-  ,
   {
     title: "Landing Page",
-    description:
-      "Landing page with hero section, features, and call-to-action.",
+    description: "Marketing landing page with hero section and CTA.",
     image: "/Image/lamdingpage.png",
     tech: ["HTML", "CSS"],
     link: "https://ninishad-1011.github.io/2nd-web-page/",
   },
-  ,
   {
     title: "CUCSEAA Admin Panel",
-    description:
-      "Admin panel for managing alumni community site.",
+    description: "Admin dashboard for alumni community management.",
     image: "/Image/admin.png",
-    tech: ["Next.js", "JavaScript", "Tailwind CSS"],
+    tech: ["Next.js", "JavaScript", "Tailwind"],
     link: "https://github.com/ninishad-1011/alumni_admin_dashboard",
   },
-  ,
   {
     title: "Hotel Management System",
     description:
-      "Hotel Management System is a web application that allows hotels to manage room bookings, customer details, and services efficiently, streamlining operations and improving guest experience.",
+      "Desktop-based hotel management system for bookings and services.",
     image: "/Image/hotel management.png",
-    tech: ["JAVA", "SWING", "NYSQL"],
+    tech: ["Java", "Swing", "MySQL"],
     link: "https://github.com/ninishad-1011/HotelmanagemenntSystem",
   },
   {
-    title: "HRMS Management System",
+    title: "HRMS System",
     description:
-      "HRMS Management System is a comprehensive Human Resource Management System that streamlines employee data management, attendance tracking, and payroll processing, enhancing organizational efficiency and workforce management.",
+      "Human Resource Management System for employee and payroll handling.",
     image: "/Image/hrms.png",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    tech: ["Next.js", "TypeScript", "Tailwind"],
     link: "https://github.com/ninishad-1011/hrms-system-frontend",
   },
-    {
+  {
     title: "Student Management System",
-    description:
-      "Student Management System is a web application designed to efficiently manage student records Role based AcessControl",
+    description: "Role-based student record management system.",
     image: "/Image/download.png",
-    tech: ["HTML", "BOOTSTRAP ", "PHP", "MY SQL","CSS"],
+    tech: ["HTML", "Bootstrap", "PHP", "MySQL"],
     link: "https://github.com/ninishad-1011/Final_Project_1011",
   },
 ];
 
-const sliderSettings = {
-  dots: true,
-  infinite: true,
-  speed: 800,
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 3000,
-  pauseOnHover: true,
-  arrows: true,
-  centerMode: true,
-  centerPadding: "0px",
-  responsive: [
-    { breakpoint: 1024, settings: { slidesToShow: 3, centerPadding: "0px" } },
-    { breakpoint: 768, settings: { slidesToShow: 1, centerPadding: "0px" } },
-    { breakpoint: 480, settings: { slidesToShow: 1, centerPadding: "0px" } },
-  ],
-};
-
 const ProjectsSlider = () => {
-  const { isDarkMode } = useTheme(); // Get current theme
+  const { isDarkMode } = useTheme();
 
   return (
     <section
-      className={`relative  py-16 px-6 min-h-screen overflow-hidden ${
+      className={`relative py-20 px-4 ${
         isDarkMode ? "bg-[#0B1120]" : "bg-white"
       }`}
     >
       {/* Background Gradient */}
       <div
-        className={`  absolute inset-0 -z-10 ${
+        className={`absolute inset-0 -z-10 ${
           isDarkMode
             ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
             : "bg-gradient-to-br from-gray-100 via-gray-200 to-gray-100"
         }`}
-      ></div>
+      />
 
-      {/* Floating Particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        <span
-          className={`absolute w-2 h-2 rounded-full animate-float ${
-            isDarkMode ? "bg-[#1c1e22]" : "bg-gray-400"
-          }`}
-          style={{ top: "25%", left: "15%" }}
-        ></span>
-        <span
-          className={`absolute w-1.5 h-1.5 rounded-full animate-float-slow ${
-            isDarkMode ? "bg-[#2a2c30]" : "bg-gray-300"
-          }`}
-          style={{ top: "70%", left: "75%" }}
-        ></span>
-        <span
-          className={`absolute w-3 h-3 rounded-full animate-float-medium ${
-            isDarkMode ? "bg-[#00ADB5]" : "bg-[#99a7a8]"
-          }`}
-          style={{ top: "50%", left: "50%" }}
-        ></span>
-      </div>
-
-      <div className="container mx-auto max-w-6xl relative z-10">
+      <div className="max-w-6xl mx-auto">
         <h1
-          className={`text-4xl pt-8 md:text-5xl font-bold text-center mb-1 ${
+          className={`text-4xl md:text-5xl font-bold text-center ${
             isDarkMode ? "text-[#00ADB5]" : "text-[#0077b6]"
           }`}
         >
-          ALL Projects
+          All Projects
         </h1>
-        <h1  className={`${isDarkMode ? "text-gray-400" : "text-gray-600"} mt-3 max-w-xl mx-auto`}> A collection of projects showcasing my skills in Front-End Development. </h1>
 
-        <Slider {...sliderSettings}>
+        <p
+          className={`text-center mt-4 mb-12 ${
+            isDarkMode ? "text-gray-400" : "text-gray-600"
+          }`}
+        >
+          A collection of projects showcasing my front-end development skills
+        </p>
+
+        {/* Swiper Slider */}
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          autoplay={{ delay: 2500, disableOnInteraction: false }}
+          pagination={{ clickable: true, el: ".custom-pagination" }}
+          spaceBetween={24}
+          breakpoints={{
+            0: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+        >
           {projects.map((project, idx) => (
-            <div key={idx} className="px-2">
+            <SwiperSlide key={idx}>
               <div
-                className={`relative w-full h-80 py-5 rounded-xl overflow-hidden group shadow-lg transition-transform duration-500 hover:shadow-2xl hover:scale-105 ${
-                  isDarkMode ? "" : "bg-gray-100"
-                }`}
+                className={`group h-[420px] rounded-2xl overflow-hidden 
+                transition-all duration-300 shadow-md hover:shadow-xl
+                ${isDarkMode ? "bg-[#0f172a]" : "bg-white"}`}
               >
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-contain rounded-xl"
-                />
+                {/* Project Image */}
+                <div className="relative h-48">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
 
-                {/* Overlay */}
-                <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/80 to-transparent rounded-xl translate-y-full group-hover:translate-y-0 transition-all duration-500 backdrop-blur-sm">
+                {/* Project Content */}
+                <div className="p-5 flex flex-col h-[calc(100%-192px)]">
                   <h2
-                    className={`text-2xl font-bold mb-2 ${
-                      isDarkMode ? "text-[#08ddb9]" : "text-[#12aefc]"
+                    className={`text-lg font-bold ${
+                      isDarkMode ? "text-white" : "text-gray-900"
                     }`}
                   >
                     {project.title}
                   </h2>
+
                   <p
-                    className={`mb-4 ${
-                      isDarkMode ? "text-white font-semibold" : "text-white font-semibold"
+                    className={`text-sm mt-2 flex-grow ${
+                      isDarkMode ? "text-gray-400" : "text-gray-600"
                     }`}
                   >
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech, techIdx) => (
+
+                  {/* Tech stack */}
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {project.tech.slice(0, 4).map((tech, i) => (
                       <span
-                        key={techIdx}
-                        className={`px-2 py-1 rounded text-sm ${
+                        key={i}
+                        className={`text-xs px-3 py-1 rounded-full border ${
                           isDarkMode
-                            ? "bg-[#00ADB5] text-black"
-                            : "bg-[#00c1d0] text-black"
+                            ? "border-gray-600 text-gray-300"
+                            : "border-gray-300 text-gray-700"
                         }`}
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
+
+                  {/* Button */}
                   <a
                     href={project.link}
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className={`inline-block px-4 py-2 rounded font-medium shadow-md hover:shadow-lg transition-colors ${
-                      isDarkMode
-                        ? "bg-[#00ADB5] text-black hover:bg-[#00c1d0]"
-                        : "bg-[#00c1d0] text-black hover:bg-[#00e0ff]"
-                    }`}
+                    className="mt-5 text-center rounded-lg py-2 font-semibold bg-[#00ADB5] text-black hover:bg-[#00c1d0] transition-colors"
                   >
                     View Project
                   </a>
                 </div>
               </div>
-            </div>
+            </SwiperSlide>
           ))}
-        </Slider>
+        </Swiper>
+
+        {/* Custom Pagination Container */}
+        <div className="custom-pagination mt-6 flex justify-center"></div>
       </div>
 
-      {/* Global styles for slider */}
+      {/* Pagination Dot Colors */}
       <style jsx global>{`
-        .slick-center .group {
-          transform: scale(1.05) !important;
-          z-index: 10;
-          border: 2px solid #00adb5;
-          box-shadow: 0 5px 10px rgba(0, 173, 181, 0.5);
+        .custom-pagination .swiper-pagination-bullet {
+          background: ${isDarkMode ? "#00ADB5" : "#0077b6"};
+          opacity: 0.4;
         }
-        .slick-slide .group {
-          transform: scale(0.85) rotateY(-5deg);
-          z-index: 1;
-        }
-        .slick-slide.slick-center ~ .slick-slide {
-          transform: scale(0.85) rotateY(5deg);
-        }
-        .slick-dots li button:before {
-          color: #00adb5 ;
-        
-        }
-        .slick-dots li.slick-active button:before {
-          color: #00c1d0;
-        }
-
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0) translateX(0);
-          }
-          50% {
-            transform: translateY(-20px) translateX(10px);
-          }
-        }
-        @keyframes float-slow {
-          0%,
-          100% {
-            transform: translateY(0) translateX(0);
-          }
-          50% {
-            transform: translateY(-15px) translateX(-10px);
-          }
-        }
-        @keyframes float-medium {
-          0%,
-          100% {
-            transform: translateY(0) translateX(0);
-          }
-          50% {
-            transform: translateY(-25px) translateX(15px);
-          }
-        }
-
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-        .animate-float-slow {
-          animation: float-slow 10s ease-in-out infinite;
-        }
-        .animate-float-medium {
-          animation: float-medium 8s ease-in-out infinite;
+        .custom-pagination .swiper-pagination-bullet-active {
+          background: ${isDarkMode ? "#00ADB5" : "#0077b6"};
+          opacity: 1;
         }
       `}</style>
     </section>

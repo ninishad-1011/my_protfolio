@@ -81,7 +81,7 @@ export default function Home() {
             </a>
 
             <a
-              href="/cv/Resume for me with Image.pdf"
+              href="/cv/Front-End devloper Nafiul Islam.pdf"
               download
               className="px-6 py-3 border-2 border-[#00ADB5] text-[#00ADB5] dark:text-white rounded-lg hover:bg-[#00ADB5] hover:text-white transition"
             >
